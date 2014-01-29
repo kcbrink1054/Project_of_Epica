@@ -1,0 +1,197 @@
+Used to create database::
+CREATE DATABASE CAR_INVENTORY;
+----------------------------------------------------------------------------------------------------------------------
+Create Tables::
+CREATE TABLE Employee(
+        EID INT(11) NOT NULL AUTO_INCREMENT,
+        FIRST_NAME VARCHAR(50),
+        LAST_NAME VARCHAR(50),
+        PIN INT (4),
+        PRIMARY KEY(EID)
+)
+----------------------------------------------------------------------------------------------------------------------
+CREATE TABLE Customer(
+        CID INT(11) NOT NULL AUTO_INCREMENT,
+        FIRST_NAME VARCHAR(50),
+        LAST_NAME VARCHAR(50),
+        EMAIL VARCHAR (255),
+        USERNAME VARCHAR (50),
+        PASSWORD VARCHAR (50),
+        PHONENUMBER INT (10),
+        PRIMARY KEY(CID)
+)
+----------------------------------------------------------------------------------------------------------------------
+
+
+
+CREATE TABLE Order_List(
+        OID INT(11) NOT NULL AUTO_INCREMENT,
+        SERVICE VARCHAR (255),
+        STATUS VARCHAR(50),
+         FOREIGN KEY (EID) REFERENCES Employee(EID),
+        FOREIGN KEY (CID) REFERENCES Customer(CID),
+        PRIMARY KEY(OID)
+)
+
+----------------------------------------------------------------------------------------------------------------------
+CREATE TABLE Purchase_History(
+        PID INT (11),
+        EID INT(11),
+        OID INT(11),
+        VIN INT (11),
+        DATE INT (11),
+        COST INT (11),
+        PRIMARY KEY(PID),
+        FOREIGN KEY (EID) REFERENCES Employee(EID),
+       FOREIGN KEY (CID) REFERENCES Customer(CID),
+        FOREIGN KEY (VIN) REFERENCES Car_Information(VIN)
+)
+----------------------------------------------------------------------------------------------------------------------
+
+
+CREATE TABLE Order_History(
+        CID INT(11),
+        OID INT(11),
+        EID INT(11),
+        SERVICE VARCHAR(50),
+        DATE INT(50),
+        FOREIGN KEY (CID) REFERENCES Customer(CID),
+        FOREIGN KEY (EID) REFERENCES Employee(EID)
+)
+----------------------------------------------------------------------------------------------------------------------
+CREATE TABLE Car_Information(
+	
+        VIN INT(11) NOT NULL AUTO_INCREMENT,
+        NAME VARCHAR(255),
+        MAKE VARCHAR(255),
+        MODEL VARCHAR (255),
+        YEAR INT(11),
+        RETAIL INT(11),
+        StandardEngine VARCHAR(255),
+        Horsepower VARCHAR(255),
+        Torque VARCHAR (255),
+        Transmissions VARCHAR (255),
+        CITY_MPG INT (11),
+        HIGHWAY_MPG INT (11),
+        SUNROOF VARCHAR(20),
+        AIRCONDITIONING VARCHAR(20),
+        POWERLOCKS VARCHAR (20),
+        POWERWINDOWS VARCHAR(20),
+        LEATHERSEATS VARCHAR(20),
+        MAX_SEATING INT (5),
+        NUMBEROFDOORS INT (5),
+        CASSETTEPLAYER VARCHAR(20),
+        CDPLAYER VARCHAR(20),
+        NAVSYSTEM VARCHAR(20),
+        AIRBAGS VARCHAR (20),
+        ABS_BREAKES VARCHAR (20),
+        TRACTION_CONTROL VARCHAR(20),
+        STABILITY_CONTROL VARCHAR(20),
+        PRIMARY KEY(VIN)
+)
+
+----------------------------------------------------------------------------------------------------------------------
+CREATE TABLE Car_Inventory(
+	
+        VIN INT(11) NOT NULL AUTO_INCREMENT,
+        NAME VARCHAR(255),
+        MAKE VARCHAR(255),
+        MODEL VARCHAR (255),
+        YEAR INT(11),
+        RETAIL INT(11),
+        StandardEngine VARCHAR(255),
+        Horsepower VARCHAR(255),
+        Torque VARCHAR (255),
+        Transmissions VARCHAR (255),
+        CITY_MPG INT (11),
+        HIGHWAY_MPG INT (11),
+        SUNROOF VARCHAR(20),
+        AIRCONDITIONING VARCHAR(20),
+        POWERLOCKS VARCHAR (20),
+        POWERWINDOWS VARCHAR(20),
+        LEATHERSEATS VARCHAR(20),
+        MAX_SEATING INT (5),
+        NUMBEROFDOORS INT (5),
+        CASSETTEPLAYER VARCHAR(20),
+        CDPLAYER VARCHAR(20),
+        NAVSYSTEM VARCHAR(20),
+        AIRBAGS VARCHAR (20),
+        ABS_BREAKES VARCHAR (20),
+        TRACTION_CONTROL VARCHAR(20),
+        STABILITY_CONTROL VARCHAR(20),
+        
+        
+        PRIMARY KEY(VIN)
+)
+----------------------------------------------------------------------------------------------------------------------
+
+Get Employee PIN validation:
+SELECT *
+FROM Employee
+WHERE EID = value AND PIN = value
+----------------------------------------------------------------------------------------------------------------------
+Lookup Car:
+SELECT *
+FROM Car_Inventory
+WHERE VIN = value
+----------------------------------------------------------------------------------------------------------------------
+Collect Customer Data:
+INSERT INTO Customer VALUES(…)
+----------------------------------------------------------------------------------------------------------------------
+Add to purchase history:
+INSERT INTO Purchase_History VALUES(…)
+----------------------------------------------------------------------------------------------------------------------
+Lookup Customers Purchase history:
+SELECT *
+FROM Purchase_History
+WHERE LASTNAME = value AND PHONENUMBER = value
+
+----------------------------------------------------------------------------------------------------------------------
+
+Create order:
+INSERT INTO Order_List VALUES (…)
+----------------------------------------------------------------------------------------------------------------------
+Lookup Orders:
+SELECT *
+FROM Order_List
+----------------------------------------------------------------------------------------------------------------------
+Choose next available order:
+SELECT *
+FROM Order_List
+WHERE STATUS = 'available'
+LIMIT 1
+----------------------------------------------------------------------------------------------------------------------
+Update Order in order_list:
+UPDATE Order_List
+ SET EID = 'val1', STATUS = 'val2' 
+ WHERE OID = value
+----------------------------------------------------------------------------------------------------------------------
+Move Order from order_list to Order_complete:
+INSERT INTO Order_History VALUES(…)
+----------------------------------------------------------------------------------------------------------------------
+Create Customer Order:
+INSERT INTO Order_List VALUES(…)
+----------------------------------------------------------------------------------------------------------------------
+Delete Order:
+DELETE FROM Order_List
+WHERE condition
+----------------------------------------------------------------------------------------------------------------------
+Lookup Cars in car inventory::
+SELECT *
+FROM Car_Inventory
+WHERE VIN = value
+----------------------------------------------------------------------------------------------------------------------
+Add cars to the car inventory table::
+INSERT INTO Car_Inventory VALUES(…);
+----------------------------------------------------------------------------------------------------------------------
+Update  cars to the car inventory table::
+UPDATE Car_Inventory
+   SET col1 = 'val1', col2 = 'val2' ...
+ WHERE VIN = value
+
+----------------------------------------------------------------------------------------------------------------------
+Delete cars to the car inventory table::
+DELETE FROM Car_Inventory
+WHERE VIN = value
+----------------------------------------------------------------------------------------------------------------------
+
