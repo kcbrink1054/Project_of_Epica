@@ -1,0 +1,44 @@
+------------------------------------------------------------------------------------------------------------------------------------------
+Employee
+Selling:
+-Get Employees PIN-
+Car Inventory Table
+-Lookup Car-
+Customer Table
+-Store Customers Info and Car-
+/*Store customer's info with car info in purchase history table*/
+-Purchase Complete-
+------------------------------------------------------------------------------------------------------------------------------------------
+Servicing:
+-Get person's name and phone number-
+Purchase History Table
+-Get what needs to be fixed-
+Store in order list table
+------------------------------------------------------------------------------------------------------------------------------------------
+Order Life Cycle:
+-Would you like to retrieve order?-
+Get order from order list table
+Update order status to processing and EID
+//When order is complete
+-Enter order id-
+Move order from Order List to Order History
+------------------------------------------------------------------------------------------------------------------------------------------
+Customer Order:
+-login and create order-
+-What is your cars VIN?-
+Save VIN for order list table
+Save CID for order list table
+-What service needs to be done?-
+Update service and update status to available
+Delete Order:
+-What is your name and phone number?-
+Retrieve orders from this guest from order list
+-Are you sure you want to remove this order?-
+Delete row from order list
+------------------------------------------------------------------------------------------------------------------------------------------
+Car Inventory - keep track of cars currently in stock
+Car Information - Keeps track of every car ever carried
+Customer Information - Keeps track of relevant information of customer
+Purchase History - Saves history of all purchases
+Order list - Keeps track of active service requests
+Employee - Keeps track of Employees

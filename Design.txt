@@ -1,0 +1,25 @@
+Requirement analysis:
+Car inventory
+•         The system shall include a car inventory table with the fields specified in the system design
+•         The system shall provide a car lookup functionality based on the fields in the car inventory table
+•         The system shall provide a way to add, delete, and update entry in the car inventory table
+Order list
+•         The system shall include an order list table with the fields specified in the system design
+•         The system shall support two types of orders: car purchase order and car service order
+•         The system shall provide an order lookup functionality based on the fields in the order list table
+•         The system shall provide a way to place and removing an order by a customer
+•         The system shall notify a dealership staff about new order
+•         The system shall provide a way for dealership staff to process and close an order
+Car maintenance--(Order Complete)
+•         The system shall maintain a car maintenance history that is stored in the database
+•         The system shall automatically update maintenance history when a car service order is created, processed, and closed
+•         The design of car maintenance table is described in the system design part
+Order generation
+•         The system shall provide a customer a capability to create an order
+•         The system shall provide a customer a capability to update and remove an order if it was not processed yet
+•         The system shall store a generated order in the order list table
+Order processing
+•         The system shall provide a way for dealership staff to process an order
+•         A customer must not have any access to order processing activities
+•         The system shall generate records for all order processing activities
+
