@@ -27,6 +27,7 @@ CREATE TABLE Customer(
 
 CREATE TABLE Order_List(
 	EID INT(11),
+	CID INT(11),
         OID INT(11) NOT NULL AUTO_INCREMENT,
         SERVICE VARCHAR (255),
         STATUS VARCHAR(50),
@@ -37,6 +38,7 @@ CREATE TABLE Order_List(
 
 ----------------------------------------------------------------------------------------------------------------------
 CREATE TABLE Purchase_History(
+        CID INT(11),
         PID INT (11),
         EID INT(11),
         OID INT(11),
@@ -64,31 +66,10 @@ CREATE TABLE Order_History(
 CREATE TABLE Car_Information(
 	
         VIN INT(11) NOT NULL AUTO_INCREMENT,
-        NAME VARCHAR(255),
         MAKE VARCHAR(255),
         MODEL VARCHAR (255),
         YEAR INT(11),
         RETAIL INT(11),
-        StandardEngine VARCHAR(255),
-        Horsepower VARCHAR(255),
-        Torque VARCHAR (255),
-        Transmissions VARCHAR (255),
-        CITY_MPG INT (11),
-        HIGHWAY_MPG INT (11),
-        SUNROOF VARCHAR(20),
-        AIRCONDITIONING VARCHAR(20),
-        POWERLOCKS VARCHAR (20),
-        POWERWINDOWS VARCHAR(20),
-        LEATHERSEATS VARCHAR(20),
-        MAX_SEATING INT (5),
-        NUMBEROFDOORS INT (5),
-        CASSETTEPLAYER VARCHAR(20),
-        CDPLAYER VARCHAR(20),
-        NAVSYSTEM VARCHAR(20),
-        AIRBAGS VARCHAR (20),
-        ABS_BREAKES VARCHAR (20),
-        TRACTION_CONTROL VARCHAR(20),
-        STABILITY_CONTROL VARCHAR(20),
         PRIMARY KEY(VIN)
 )
 
@@ -96,37 +77,18 @@ CREATE TABLE Car_Information(
 CREATE TABLE Car_Inventory(
 	
         VIN INT(11) NOT NULL AUTO_INCREMENT,
-        NAME VARCHAR(255),
         MAKE VARCHAR(255),
         MODEL VARCHAR (255),
         YEAR INT(11),
         RETAIL INT(11),
-        StandardEngine VARCHAR(255),
-        Horsepower VARCHAR(255),
-        Torque VARCHAR (255),
-        Transmissions VARCHAR (255),
-        CITY_MPG INT (11),
-        HIGHWAY_MPG INT (11),
-        SUNROOF VARCHAR(20),
-        AIRCONDITIONING VARCHAR(20),
-        POWERLOCKS VARCHAR (20),
-        POWERWINDOWS VARCHAR(20),
-        LEATHERSEATS VARCHAR(20),
-        MAX_SEATING INT (5),
-        NUMBEROFDOORS INT (5),
-        CASSETTEPLAYER VARCHAR(20),
-        CDPLAYER VARCHAR(20),
-        NAVSYSTEM VARCHAR(20),
-        AIRBAGS VARCHAR (20),
-        ABS_BREAKES VARCHAR (20),
-        TRACTION_CONTROL VARCHAR(20),
-        STABILITY_CONTROL VARCHAR(20),
-        
-        
         PRIMARY KEY(VIN)
+       
 )
 ----------------------------------------------------------------------------------------------------------------------
 
+Add Employee:
+INSERT INTO employee VALUES(1453654,'Kalan','Brinkley',1054)
+----------------------------------------------------------------------------------------------------------------------
 Get Employee PIN validation:
 SELECT *
 FROM Employee
