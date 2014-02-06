@@ -109,6 +109,7 @@ WHERE LASTNAME = value AND PHONENUMBER = value
 
 Create order:
 INSERT INTO Order_List VALUES (…)
+INSERT INTO Order_List VALUES (1453654,1234, 1, 'Change Tires','Available')
 ----------------------------------------------------------------------------------------------------------------------
 Lookup Orders:
 SELECT *
