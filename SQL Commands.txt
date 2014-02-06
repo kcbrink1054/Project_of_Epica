@@ -26,13 +26,11 @@ CREATE TABLE Customer(
 
 
 CREATE TABLE Order_List(
-	EID INT(11),
-	CID INT(11),
+		EID INT(11),
+		CID INT(11),
         OID INT(11) NOT NULL AUTO_INCREMENT,
         SERVICE VARCHAR (255),
         STATUS VARCHAR(50),
-         FOREIGN KEY (EID) REFERENCES Employee(EID),
-        FOREIGN KEY (CID) REFERENCES Customer(CID),
         PRIMARY KEY(OID)
 )
 
@@ -45,10 +43,8 @@ CREATE TABLE Purchase_History(
         VIN INT (11),
         DATE INT (11),
         COST INT (11),
-        PRIMARY KEY(PID),
-        FOREIGN KEY (EID) REFERENCES Employee(EID),
-       FOREIGN KEY (CID) REFERENCES Customer(CID),
-        FOREIGN KEY (VIN) REFERENCES Car_Information(VIN)
+        PRIMARY KEY(PID)
+
 )
 ----------------------------------------------------------------------------------------------------------------------
 
@@ -59,12 +55,11 @@ CREATE TABLE Order_History(
         EID INT(11),
         SERVICE VARCHAR(50),
         DATE INT(50),
-        FOREIGN KEY (CID) REFERENCES Customer(CID),
-        FOREIGN KEY (EID) REFERENCES Employee(EID)
+		PRIMARY KEY(OID)
 )
 ----------------------------------------------------------------------------------------------------------------------
 CREATE TABLE Car_Information(
-	
+
         VIN INT(11) NOT NULL AUTO_INCREMENT,
         MAKE VARCHAR(255),
         MODEL VARCHAR (255),
@@ -75,7 +70,7 @@ CREATE TABLE Car_Information(
 
 ----------------------------------------------------------------------------------------------------------------------
 CREATE TABLE Car_Inventory(
-	
+
         VIN INT(11) NOT NULL AUTO_INCREMENT,
         MAKE VARCHAR(255),
         MODEL VARCHAR (255),
@@ -127,7 +122,7 @@ LIMIT 1
 ----------------------------------------------------------------------------------------------------------------------
 Update Order in order_list:
 UPDATE Order_List
- SET EID = 'val1', STATUS = 'val2' 
+ SET EID = 'val1', STATUS = 'val2'
  WHERE OID = value
 ----------------------------------------------------------------------------------------------------------------------
 Move Order from order_list to Order_complete:
@@ -148,7 +143,7 @@ WHERE VIN = value
 Add cars to the car inventory table::
 INSERT INTO Car_Inventory VALUES(…);
 ----------------------------------------------------------------------------------------------------------------------
-Update  cars to the car inventory table::
+Update cars to the car inventory table::
 UPDATE Car_Inventory
    SET col1 = 'val1', col2 = 'val2' ...
  WHERE VIN = value
@@ -158,4 +153,3 @@ Delete cars to the car inventory table::
 DELETE FROM Car_Inventory
 WHERE VIN = value
 ----------------------------------------------------------------------------------------------------------------------
-
